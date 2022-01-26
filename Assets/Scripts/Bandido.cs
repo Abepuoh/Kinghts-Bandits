@@ -8,13 +8,13 @@ public class Bandido : MonoBehaviour
    int currentHealth;
    private Animator anim;
    //ATAQUES;
-   
    void Start()
     {   
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
+       
     }
-    
+
     public void TakeDamage(int damage)
    {
        currentHealth -= damage;
