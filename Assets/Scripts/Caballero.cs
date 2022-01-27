@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Caballero : MonoBehaviour
@@ -57,6 +57,15 @@ public class Caballero : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("muere"))
+        {
+            Animator.SetBool("IsDead", true);
+            numberOfCoins = 0;
+            SceneManager.LoadScene("SampleScene");
+        }
     }
     private void Attack()
     {
